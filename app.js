@@ -19,7 +19,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'static')));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -44,6 +44,8 @@ if (app.get('env') === 'development') {
         });
     });
 }
+
+app.listen(8080);
 
 // production error handler
 // no stacktraces leaked to user
