@@ -1,5 +1,67 @@
-{% extends 'templates/base.html' %}
-{% block site-title %} Site Name {% endblock %}
-{% block content %}
-Welcome to Express, using Swig templates
-{% endblock %}
+
+{% raw %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <script type="text/x-handlebars">
+    <h2>Welcome to Ember.js</h2>
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="index">
+    <ul>
+    {{#each item in model}}
+      <li>{{item}}</li>
+    {{/each}}
+    </ul>
+  </script>
+
+
+  <script type="text/x-handlebars" id="signup">
+    <div class="signup">
+      {{ input type="text" id="signup_email" value=email placeholder="email" }}
+      {{ input type="text" id="signup_username" value=username placeholder="username" }}
+      {{ input type="text" id="signup_password" value=password placeholder="password" }}
+      {{ input type="text" value=confirmPassword placeholder="confirm password" }}
+      <button {{action 'signup'}}>signup</button>
+    </div>
+  </script>
+
+
+  <script type="text/x-handlebars" id="beer">
+    <h1> beers </h1>
+      {{#each controller}}
+        {{ input type="text" value=name }}
+      {{/each}}
+
+      <button {{action 'saveBeer'}}>save</button>
+    </table>
+  </script>
+
+
+
+  <script type="text/x-handlebars" id="login">
+      {{ input type="text" id="login_username" value=username placeholder="username" }}
+      {{ input type="text" id="login_password" value=password placeholder="password" }}
+      <button {{action 'login'}}>login</button>
+
+      {{ error }}
+  </script>
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/ember-1.6.1.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+  <script src="js/app.js"></script>
+  <!-- to activate the test runner, add the "?test" query string parameter -->
+  <script src="tests/runner.js"></script>
+</body>
+</html>
+{% endraw %}

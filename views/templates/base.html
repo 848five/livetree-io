@@ -2,6 +2,16 @@
 <html>
 <head>
 	<title>{% block site-title %}{% endblock %}</title>
+	
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript">
+window.onload = function() {
+	var socket = io();
+}
+</script>
+	<script type="text/javascript" src="http://use.typekit.net/xpn3cta.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 
